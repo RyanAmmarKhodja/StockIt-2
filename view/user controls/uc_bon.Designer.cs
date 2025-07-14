@@ -63,7 +63,7 @@
             label18 = new Label();
             choisir_fournisseur = new Button();
             button1 = new Button();
-            retour = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // fadresse
@@ -345,7 +345,7 @@
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI", 12F);
-            label18.Location = new Point(31, 14);
+            label18.Location = new Point(86, 20);
             label18.Name = "label18";
             label18.Size = new Size(403, 32);
             label18.TabIndex = 79;
@@ -373,21 +373,23 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // retour
+            // button3
             // 
-            retour.Location = new Point(455, 15);
-            retour.Name = "retour";
-            retour.Size = new Size(112, 34);
-            retour.TabIndex = 82;
-            retour.Text = "retour";
-            retour.UseVisualStyleBackColor = true;
-            retour.Click += retour_Click;
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            button3.Location = new Point(31, 19);
+            button3.Name = "button3";
+            button3.Size = new Size(43, 34);
+            button3.TabIndex = 83;
+            button3.Text = "<";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // uc_bon
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(retour);
+            AutoScroll = true;
+            Controls.Add(button3);
             Controls.Add(button1);
             Controls.Add(choisir_fournisseur);
             Controls.Add(label18);
@@ -425,6 +427,7 @@
             Controls.Add(label1);
             Name = "uc_bon";
             Size = new Size(1025, 1096);
+            Load += uc_bon_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -466,6 +469,6 @@
         private Label label18;
         private Button choisir_fournisseur;
         private Button button1;
-        private Button retour;
+        private Button button3;
     }
 }

@@ -19,6 +19,21 @@ namespace StockIt_2
             InitializeComponent();
         }
 
+        //private KeyPressEventHandler keyPressEventHandler;
+        //private void uc_achats_Load(object sender, EventArgs e)
+        //{
+        //    keyPressEventHandler = new KeyPressEventHandler(HandleKeyPress);
+        //    this.KeyPress += keyPressEventHandler;
+        //}
+
+        //private void HandleKeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (e.KeyChar == (char)Keys.Escape)
+        //    {
+        //        //retour_Click(sender, e);
+        //    }
+        //}
+
         private void fournisseur_Click(object sender, EventArgs e)
         {
             NavigationMaster.Navigate(new uc_creer_fournisseur());
@@ -43,7 +58,7 @@ namespace StockIt_2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            NavigationMaster.Navigate(new uc_add());
+            retour_Click(sender, e);
         }
     }
 }

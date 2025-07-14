@@ -41,12 +41,15 @@
             label1 = new Label();
             adresse = new TextBox();
             label11 = new Label();
+            button3 = new Button();
+            label18 = new Label();
             SuspendLayout();
             // 
             // retour
             // 
+            retour.Anchor = AnchorStyles.None;
             retour.Font = new Font("Segoe UI", 12F);
-            retour.Location = new Point(18, 580);
+            retour.Location = new Point(48, 433);
             retour.Name = "retour";
             retour.Size = new Size(149, 42);
             retour.TabIndex = 42;
@@ -56,8 +59,9 @@
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.None;
             button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(611, 580);
+            button1.Location = new Point(654, 433);
             button1.Name = "button1";
             button1.Size = new Size(253, 42);
             button1.TabIndex = 41;
@@ -67,16 +71,18 @@
             // 
             // tel
             // 
-            tel.Location = new Point(150, 243);
+            tel.Anchor = AnchorStyles.None;
+            tel.Location = new Point(180, 363);
             tel.Name = "tel";
             tel.Size = new Size(357, 31);
             tel.TabIndex = 36;
             // 
             // label8
             // 
+            label8.Anchor = AnchorStyles.None;
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F);
-            label8.Location = new Point(18, 240);
+            label8.Location = new Point(48, 360);
             label8.Name = "label8";
             label8.Size = new Size(62, 32);
             label8.TabIndex = 35;
@@ -84,16 +90,18 @@
             // 
             // matricule
             // 
-            matricule.Location = new Point(150, 193);
+            matricule.Anchor = AnchorStyles.None;
+            matricule.Location = new Point(180, 313);
             matricule.Name = "matricule";
             matricule.Size = new Size(357, 31);
             matricule.TabIndex = 28;
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(18, 190);
+            label4.Location = new Point(48, 310);
             label4.Name = "label4";
             label4.Size = new Size(126, 32);
             label4.TabIndex = 27;
@@ -101,9 +109,10 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label3.Location = new Point(18, 20);
+            label3.Location = new Point(48, 140);
             label3.Name = "label3";
             label3.Size = new Size(290, 32);
             label3.TabIndex = 26;
@@ -111,16 +120,18 @@
             // 
             // prenom
             // 
-            prenom.Location = new Point(562, 96);
+            prenom.Anchor = AnchorStyles.None;
+            prenom.Location = new Point(592, 216);
             prenom.Name = "prenom";
             prenom.Size = new Size(315, 31);
             prenom.TabIndex = 25;
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(442, 93);
+            label2.Location = new Point(472, 213);
             label2.Name = "label2";
             label2.Size = new Size(109, 32);
             label2.TabIndex = 24;
@@ -128,16 +139,18 @@
             // 
             // nom
             // 
-            nom.Location = new Point(96, 96);
+            nom.Anchor = AnchorStyles.None;
+            nom.Location = new Point(126, 216);
             nom.Name = "nom";
             nom.Size = new Size(298, 31);
             nom.TabIndex = 23;
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(18, 93);
+            label1.Location = new Point(48, 213);
             label1.Name = "label1";
             label1.Size = new Size(79, 32);
             label1.TabIndex = 22;
@@ -145,25 +158,50 @@
             // 
             // adresse
             // 
-            adresse.Location = new Point(150, 147);
+            adresse.Anchor = AnchorStyles.None;
+            adresse.Location = new Point(180, 267);
             adresse.Name = "adresse";
             adresse.Size = new Size(727, 31);
             adresse.TabIndex = 44;
             // 
             // label11
             // 
+            label11.Anchor = AnchorStyles.None;
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 12F);
-            label11.Location = new Point(18, 144);
+            label11.Location = new Point(48, 264);
             label11.Name = "label11";
             label11.Size = new Size(109, 32);
             label11.TabIndex = 43;
             label11.Text = "Adresse :";
             // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            button3.Location = new Point(14, 17);
+            button3.Name = "button3";
+            button3.Size = new Size(43, 34);
+            button3.TabIndex = 85;
+            button3.Text = "<";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 12F);
+            label18.Location = new Point(69, 18);
+            label18.Name = "label18";
+            label18.Size = new Size(408, 32);
+            label18.TabIndex = 84;
+            label18.Text = "Accueil/Achats/Créer un transporteur";
+            // 
             // uc_creer_transporteur
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button3);
+            Controls.Add(label18);
             Controls.Add(adresse);
             Controls.Add(label11);
             Controls.Add(retour);
@@ -178,7 +216,7 @@
             Controls.Add(nom);
             Controls.Add(label1);
             Name = "uc_creer_transporteur";
-            Size = new Size(1000, 750);
+            Size = new Size(1000, 837);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -198,5 +236,7 @@
         private Label label1;
         private TextBox adresse;
         private Label label11;
+        private Button button3;
+        private Label label18;
     }
 }

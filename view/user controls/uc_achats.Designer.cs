@@ -64,7 +64,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F);
-            label1.Location = new Point(35, 32);
+            label1.Location = new Point(84, 24);
             label1.Name = "label1";
             label1.Size = new Size(145, 28);
             label1.TabIndex = 2;
@@ -111,11 +111,12 @@
             // 
             // button3
             // 
-            button3.Location = new Point(647, 32);
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            button3.Location = new Point(35, 20);
             button3.Name = "button3";
-            button3.Size = new Size(112, 34);
+            button3.Size = new Size(43, 34);
             button3.TabIndex = 7;
-            button3.Text = "Testing ";
+            button3.Text = "<";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 

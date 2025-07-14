@@ -36,19 +36,19 @@
             // trans_grid
             // 
             trans_grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            trans_grid.Location = new Point(12, 70);
+            trans_grid.Location = new Point(12, 12);
             trans_grid.Name = "trans_grid";
             trans_grid.RowHeadersWidth = 62;
-            trans_grid.Size = new Size(776, 317);
+            trans_grid.Size = new Size(1115, 517);
             trans_grid.TabIndex = 0;
             trans_grid.CellClick += trans_grid_CellClick;
             trans_grid.CellContentClick += trans_grid_CellContentClick;
             // 
             // button1
             // 
-            button1.Location = new Point(591, 393);
+            button1.Location = new Point(956, 535);
             button1.Name = "button1";
-            button1.Size = new Size(197, 34);
+            button1.Size = new Size(171, 34);
             button1.TabIndex = 1;
             button1.Text = "choisir";
             button1.UseVisualStyleBackColor = true;
@@ -58,7 +58,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1139, 581);
             Controls.Add(button1);
             Controls.Add(trans_grid);
             Name = "choisir_transporteur";

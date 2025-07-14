@@ -28,6 +28,7 @@ namespace StockIt_2.user_controls
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             string _nom = nom.Text;
             string _prenom = prenom.Text;
             string _rc = rc.Text;
@@ -39,7 +40,19 @@ namespace StockIt_2.user_controls
             string _n_facture = facture.Text;
             string _adresse = adresse.Text;
 
+
+            if (string.IsNullOrWhiteSpace(_nom))
+            {
+                MessageBox.Show("Le nom ne peut pas être vide.");
+                return;
+            }
             GestionFournisseurs.ajouterFournisseur(_nom, _prenom, _rc, _ai, _nif, _nis, _tel, _n_bl, _n_facture, _adresse);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            retour_Click(sender, e);
+        }
+
     }
 }

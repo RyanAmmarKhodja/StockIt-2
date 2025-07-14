@@ -33,7 +33,19 @@ namespace StockIt_2.user_controls
             string _matricule = matricule.Text;
             string _tel = tel.Text;
 
-            GestionTransporteurs.ajouterTransporteur(_nom,_prenom,_adresse,_matricule,_tel);
+            if (string.IsNullOrWhiteSpace(_nom))
+            {
+                MessageBox.Show("Le nom ne peut pas être vide.");
+                return;
+            }
+
+            GestionTransporteurs.ajouterTransporteur(_nom, _prenom, _adresse, _matricule, _tel);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            retour_Click(sender, e);
+        }
+
     }
 }

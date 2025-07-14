@@ -66,9 +66,14 @@ namespace StockIt_2.view.user_controls
             facture.Text = data[10];
         }
 
-        private void retour_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             NavigationMaster.Navigate(new uc_achats());
+        }
+
+        private void uc_bon_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

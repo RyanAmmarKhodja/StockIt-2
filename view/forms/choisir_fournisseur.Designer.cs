@@ -35,7 +35,8 @@
             // 
             // button1
             // 
-            button1.Location = new Point(591, 370);
+            button1.Anchor = AnchorStyles.None;
+            button1.Location = new Point(1556, 512);
             button1.Name = "button1";
             button1.Size = new Size(197, 34);
             button1.TabIndex = 3;
@@ -45,11 +46,12 @@
             // 
             // four_grid
             // 
+            four_grid.Anchor = AnchorStyles.None;
             four_grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             four_grid.Location = new Point(12, 47);
             four_grid.Name = "four_grid";
             four_grid.RowHeadersWidth = 62;
-            four_grid.Size = new Size(776, 317);
+            four_grid.Size = new Size(1741, 459);
             four_grid.TabIndex = 2;
             four_grid.CellClick += four_grid_CellClick;
             // 
@@ -57,7 +59,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1765, 558);
             Controls.Add(button1);
             Controls.Add(four_grid);
             Name = "choisir_fournisseur";
