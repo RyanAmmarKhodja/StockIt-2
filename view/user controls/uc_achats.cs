@@ -47,7 +47,8 @@ namespace StockIt_2
         private void retour_Click(object sender, EventArgs e)
         {
 
-            NavigationMaster.Navigate(new uc_accueil());
+            //NavigationMaster.Navigate(new uc_accueil());
+            NavigationMaster.retour();
 
         }
 

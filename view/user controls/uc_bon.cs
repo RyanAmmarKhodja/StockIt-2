@@ -22,12 +22,37 @@ namespace StockIt_2.view.user_controls
         {
             InitializeComponent();
         }
+        private void uc_bon_Load(object sender, EventArgs e)
+        {
+            
+
+            // Récupération des produits pour le comboBox
+            GestionProduit gestion = new GestionProduit();
+            var produits = gestion.GetProduits();
+            combo.DataSource = produits;
+            combo.DisplayMember = "Designation";
+            combo.ValueMember = "Designation";
+
+            // Récupération des coordonnées de l'entreprise
+
+            var coordonnes = coords.GetCoords();
+
+            crc.Text = coordonnes.rc;
+            cai.Text = coordonnes.ai;
+            cnif.Text = coordonnes.nif;
+            cnis.Text = coordonnes.nis;
+            cadresse.Text = coordonnes.adresse;
+
+
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             choisir_transporteur transporteur = new choisir_transporteur();
             transporteur.OnDataSent += HandleDataFromForm1;
             transporteur.Show();
+
+
         }
 
         private void HandleDataFromForm1(string[] data)
@@ -73,30 +98,11 @@ namespace StockIt_2.view.user_controls
 
         private void button3_Click(object sender, EventArgs e)
         {
-            NavigationMaster.Navigate(new uc_achats());
+            //NavigationMaster.Navigate(new uc_achats());
+            NavigationMaster.retour();
         }
 
-        private void uc_bon_Load(object sender, EventArgs e)
-        {
-            // Récupération des produits pour le comboBox
-            GestionProduit gestion = new GestionProduit();
-            var produits = gestion.GetProduits();
-            combo.DataSource = produits;
-            combo.DisplayMember = "Designation";
-            combo.ValueMember = "Designation";
-
-            // Récupération des coordonnées de l'entreprise
-            
-            var coordonnes = coords.GetCoords();
-            
-            crc.Text = coordonnes.rc;
-            cai.Text = coordonnes.ai;
-            cnif.Text = coordonnes.nif;
-            cnis.Text = coordonnes.nis;
-            cadresse.Text = coordonnes.adresse;
-            
-            
-        }
+        
 
         private void ajouter_produit_Click(object sender, EventArgs e)
         {
@@ -107,7 +113,7 @@ namespace StockIt_2.view.user_controls
         private void button4_Click(object sender, EventArgs e)
         {
             var maj = MessageBox.Show("Voulez-vous vraiment modifier les coordonnées de l'entreprise ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(maj == DialogResult.Yes)
+            if (maj == DialogResult.Yes)
             {
                 var nouvellesCoordonnes = new Coords
                 {
@@ -124,7 +130,41 @@ namespace StockIt_2.view.user_controls
                 var coordonnes = coords.editCoords(nouvellesCoordonnes);
                 MessageBox.Show("Coordonnées mises à jour avec succès.");
             }
-            
+
+        }
+
+        
+
+        private void verify_poids_nbr()
+        {
+            if (string.IsNullOrEmpty(poids.Text) && string.IsNullOrEmpty(nombre.Text))
+            {
+                // Nothing entered yet, enable both
+                poids.Enabled = true;
+                nombre.Enabled = true;
+            }
+            else if (!string.IsNullOrEmpty(poids.Text))
+            {
+                // poids has value, disable nombre
+                poids.Enabled = true;
+                nombre.Enabled = false;
+            }
+            else if (!string.IsNullOrEmpty(nombre.Text))
+            {
+                // nombre has value, disable poids
+                poids.Enabled = false;
+                nombre.Enabled = true;
+            }
+        }
+
+        private void poids_TextChanged(object sender, EventArgs e)
+        {
+            verify_poids_nbr();
+        }
+
+        private void nombre_TextChanged(object sender, EventArgs e)
+        {
+            verify_poids_nbr();
         }
     }
 }

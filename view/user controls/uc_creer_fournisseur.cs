@@ -23,7 +23,8 @@ namespace StockIt_2.user_controls
         private void retour_Click(object sender, EventArgs e)
         {
 
-            NavigationMaster.Navigate(new uc_achats());
+            //NavigationMaster.Navigate(new uc_achats());
+            NavigationMaster.retour();
         }
 
         private void button1_Click(object sender, EventArgs e)

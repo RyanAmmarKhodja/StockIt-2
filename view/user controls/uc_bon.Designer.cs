@@ -65,7 +65,7 @@
             choisir_fournisseur = new Button();
             button1 = new Button();
             button3 = new Button();
-            textBox1 = new TextBox();
+            prix_unitaire = new TextBox();
             label19 = new Label();
             label22 = new Label();
             poids = new TextBox();
@@ -73,7 +73,7 @@
             nombre = new TextBox();
             label24 = new Label();
             label25 = new Label();
-            label20 = new Label();
+            total_transport = new Label();
             textBox2 = new TextBox();
             label21 = new Label();
             button2 = new Button();
@@ -91,8 +91,9 @@
             ajouter_produit = new Button();
             combo = new ComboBox();
             gestionProduitBindingSource = new BindingSource(components);
-            label32 = new Label();
+            total_des = new Label();
             button4 = new Button();
+            tg = new Label();
             ((System.ComponentModel.ISupportInitialize)gestionProduitBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -414,12 +415,12 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // textBox1
+            // prix_unitaire
             // 
-            textBox1.Location = new Point(200, 1157);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(124, 31);
-            textBox1.TabIndex = 94;
+            prix_unitaire.Location = new Point(200, 1157);
+            prix_unitaire.Name = "prix_unitaire";
+            prix_unitaire.Size = new Size(124, 31);
+            prix_unitaire.TabIndex = 94;
             // 
             // label19
             // 
@@ -447,6 +448,7 @@
             poids.Name = "poids";
             poids.Size = new Size(123, 31);
             poids.TabIndex = 87;
+            poids.TextChanged += poids_TextChanged;
             // 
             // label23
             // 
@@ -464,6 +466,7 @@
             nombre.Name = "nombre";
             nombre.Size = new Size(124, 31);
             nombre.TabIndex = 85;
+            nombre.TextChanged += nombre_TextChanged;
             // 
             // label24
             // 
@@ -485,15 +488,15 @@
             label25.TabIndex = 95;
             label25.Text = "Désignation :";
             // 
-            // label20
+            // total_transport
             // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 12F);
-            label20.Location = new Point(544, 1207);
-            label20.Name = "label20";
-            label20.Size = new Size(77, 32);
-            label20.TabIndex = 97;
-            label20.Text = "Total: ";
+            total_transport.AutoSize = true;
+            total_transport.Font = new Font("Segoe UI", 12F);
+            total_transport.Location = new Point(544, 1204);
+            total_transport.Name = "total_transport";
+            total_transport.Size = new Size(91, 32);
+            total_transport.TabIndex = 97;
+            total_transport.Text = "Total :  ";
             // 
             // textBox2
             // 
@@ -526,7 +529,7 @@
             // 
             label26.AutoSize = true;
             label26.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label26.Location = new Point(31, 1295);
+            label26.Location = new Point(31, 1306);
             label26.Name = "label26";
             label26.Size = new Size(180, 32);
             label26.TabIndex = 103;
@@ -534,7 +537,7 @@
             // 
             // crc
             // 
-            crc.Location = new Point(200, 1361);
+            crc.Location = new Point(200, 1372);
             crc.Name = "crc";
             crc.Size = new Size(450, 31);
             crc.TabIndex = 102;
@@ -543,7 +546,7 @@
             // 
             label27.AutoSize = true;
             label27.Font = new Font("Segoe UI", 12F);
-            label27.Location = new Point(31, 1358);
+            label27.Location = new Point(31, 1369);
             label27.Name = "label27";
             label27.Size = new Size(55, 32);
             label27.TabIndex = 101;
@@ -551,7 +554,7 @@
             // 
             // cadresse
             // 
-            cadresse.Location = new Point(200, 1412);
+            cadresse.Location = new Point(200, 1423);
             cadresse.Name = "cadresse";
             cadresse.Size = new Size(450, 31);
             cadresse.TabIndex = 105;
@@ -560,7 +563,7 @@
             // 
             label28.AutoSize = true;
             label28.Font = new Font("Segoe UI", 12F);
-            label28.Location = new Point(31, 1409);
+            label28.Location = new Point(31, 1420);
             label28.Name = "label28";
             label28.Size = new Size(109, 32);
             label28.TabIndex = 104;
@@ -568,7 +571,7 @@
             // 
             // cai
             // 
-            cai.Location = new Point(200, 1462);
+            cai.Location = new Point(200, 1473);
             cai.Name = "cai";
             cai.Size = new Size(450, 31);
             cai.TabIndex = 107;
@@ -577,7 +580,7 @@
             // 
             label29.AutoSize = true;
             label29.Font = new Font("Segoe UI", 12F);
-            label29.Location = new Point(31, 1459);
+            label29.Location = new Point(31, 1470);
             label29.Name = "label29";
             label29.Size = new Size(47, 32);
             label29.TabIndex = 106;
@@ -585,7 +588,7 @@
             // 
             // cnif
             // 
-            cnif.Location = new Point(200, 1514);
+            cnif.Location = new Point(200, 1525);
             cnif.Name = "cnif";
             cnif.Size = new Size(450, 31);
             cnif.TabIndex = 109;
@@ -594,7 +597,7 @@
             // 
             label30.AutoSize = true;
             label30.Font = new Font("Segoe UI", 12F);
-            label30.Location = new Point(31, 1513);
+            label30.Location = new Point(31, 1524);
             label30.Name = "label30";
             label30.Size = new Size(62, 32);
             label30.TabIndex = 108;
@@ -602,7 +605,7 @@
             // 
             // cnis
             // 
-            cnis.Location = new Point(200, 1566);
+            cnis.Location = new Point(200, 1577);
             cnis.Name = "cnis";
             cnis.Size = new Size(450, 31);
             cnis.TabIndex = 111;
@@ -611,7 +614,7 @@
             // 
             label31.AutoSize = true;
             label31.Font = new Font("Segoe UI", 12F);
-            label31.Location = new Point(31, 1565);
+            label31.Location = new Point(31, 1576);
             label31.Name = "label31";
             label31.Size = new Size(63, 32);
             label31.TabIndex = 110;
@@ -640,20 +643,20 @@
             // 
             gestionProduitBindingSource.DataSource = typeof(models.GestionProduit.GestionProduit);
             // 
-            // label32
+            // total_des
             // 
-            label32.AutoSize = true;
-            label32.Font = new Font("Segoe UI", 12F);
-            label32.Location = new Point(544, 1157);
-            label32.Name = "label32";
-            label32.Size = new Size(77, 32);
-            label32.TabIndex = 114;
-            label32.Text = "Total: ";
+            total_des.AutoSize = true;
+            total_des.Font = new Font("Segoe UI", 12F);
+            total_des.Location = new Point(544, 1157);
+            total_des.Name = "total_des";
+            total_des.Size = new Size(84, 32);
+            total_des.TabIndex = 114;
+            total_des.Text = "Total : ";
             // 
             // button4
             // 
             button4.Font = new Font("Segoe UI", 10F);
-            button4.Location = new Point(217, 1292);
+            button4.Location = new Point(217, 1303);
             button4.Name = "button4";
             button4.Size = new Size(275, 41);
             button4.TabIndex = 115;
@@ -661,13 +664,24 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // tg
+            // 
+            tg.AutoSize = true;
+            tg.Font = new Font("Segoe UI", 12F);
+            tg.Location = new Point(567, 1245);
+            tg.Name = "tg";
+            tg.Size = new Size(54, 32);
+            tg.TabIndex = 116;
+            tg.Text = "TG :";
+            // 
             // uc_bon
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            Controls.Add(tg);
             Controls.Add(button4);
-            Controls.Add(label32);
+            Controls.Add(total_des);
             Controls.Add(combo);
             Controls.Add(ajouter_produit);
             Controls.Add(cnis);
@@ -684,9 +698,9 @@
             Controls.Add(button2);
             Controls.Add(textBox2);
             Controls.Add(label21);
-            Controls.Add(label20);
+            Controls.Add(total_transport);
             Controls.Add(label25);
-            Controls.Add(textBox1);
+            Controls.Add(prix_unitaire);
             Controls.Add(label19);
             Controls.Add(label22);
             Controls.Add(poids);
@@ -775,7 +789,7 @@
         private Button choisir_fournisseur;
         private Button button1;
         private Button button3;
-        private TextBox textBox1;
+        private TextBox prix_unitaire;
         private Label label19;
         private Label label22;
         private TextBox poids;
@@ -784,7 +798,7 @@
         private Label label24;
         private TextBox designation;
         private Label label25;
-        private Label label20;
+        private Label total_transport;
         private TextBox textBox2;
         private Label label21;
         private Button button2;
@@ -802,7 +816,8 @@
         private Button ajouter_produit;
         private ComboBox combo;
         private BindingSource gestionProduitBindingSource;
-        private Label label32;
+        private Label total_des;
         private Button button4;
+        private Label tg;
     }
 }
