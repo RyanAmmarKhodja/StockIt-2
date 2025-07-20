@@ -10,12 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="controllers\" />
     <Folder Include="Properties\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="9.0.7" />
+    <PackageReference Include="QuestPDF" Version="2025.7.0" />
     <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.11" />
     <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.119" />
   </ItemGroup>
