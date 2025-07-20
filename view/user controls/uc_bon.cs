@@ -1,4 +1,5 @@
 ﻿using StockIt_2.models;
+using StockIt_2.models.GestionBon;
 using StockIt_2.models.GestionCoords;
 using StockIt_2.models.GestionProduit;
 using StockIt_2.view.forms;
@@ -137,10 +138,7 @@ namespace StockIt_2.view.user_controls
 
 
 
-        private void imprimer_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void calculer_ttc()
         {
@@ -196,6 +194,41 @@ namespace StockIt_2.view.user_controls
         private void tpv_TextChanged(object sender, EventArgs e)
         {
             calculer_ttc();
+        }
+
+
+
+
+
+
+        private void imprimer_Click(object sender, EventArgs e)
+        {
+            try 
+            {
+                // Assuming you have a method to print the bon
+                DateTime Date = DateTime.Now;
+                GestionBon.ajouterBon(
+                    Date,
+                    fnom.Text,
+                    fprenom.Text,
+                    tnom.Text,
+                    tprenom.Text,
+                    combo.SelectedValue.ToString(),
+                    int.Parse(nombre.Text),
+                    double.Parse(poids.Text),
+                    double.Parse(prix_unitaire.Text),
+                    double.Parse(cout_transport.Text),
+                    double.Parse(total_ttc.Text.Replace(" DZD", ""))
+                );
+
+
+                MessageBox.Show("Bon imprimé avec succès.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de l'impression du bon: " + ex.Message);
+            }
+           
         }
     }
 }
