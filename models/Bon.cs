@@ -10,10 +10,9 @@ namespace StockIt_2.models
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public string fournisseur_nom { get; set; }
-        public string fournisseur_prenom { get; set; }
-        public string transporteur_nom { get; set; }
-        public string transporteur_prenom { get; set; }
+        public Fournisseur fournisseur { get; set; }
+        public Transporteur transporteur { get; set; }
+        public string category_fournisseur { get; set; }
         public double prix_transport_unitaire { get; set; }
         public double total_amount { get; set; }
 

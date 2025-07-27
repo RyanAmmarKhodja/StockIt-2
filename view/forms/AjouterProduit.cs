@@ -1,4 +1,4 @@
-﻿using StockIt_2.models.GestionProduit;
+﻿using StockIt_2.services.GestionProduit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

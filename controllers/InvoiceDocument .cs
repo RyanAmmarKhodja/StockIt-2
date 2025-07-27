@@ -52,20 +52,19 @@ namespace StockIt_2.controllers
             {
                 row.RelativeItem().Column(column =>
                 {
-                    column.Item()
-                        .Text($"Bon de récéption #{bon.Id}/{bon.Date:y}")
-                        .FontSize(20).SemiBold().FontColor(Colors.Blue.Medium);
-
                     column.Item().Text(text =>
                     {
-                        text.Span("Freha Le: ").SemiBold();
-                        text.Span($"{bon.Date:d}");
+                        text.Span("EURL GUEMOURI SOFIANE");
                     });
 
-                    
+                    column.Item().AlignRight().Text($"Freha le: {bon.Date:d}").SemiBold();
+
+                    column.Item()
+                        .Text($"Bon de récéption N°{bon.Id}/{bon.Date:yyyy}")
+                        .FontSize(20).SemiBold().FontColor(Colors.Blue.Medium);
                 });
 
-                row.ConstantItem(100).Height(50).Placeholder();
+                //row.ConstantItem(100).Height(50).Placeholder();
             });
         }
 
@@ -81,6 +80,14 @@ namespace StockIt_2.controllers
 
             container.PaddingVertical(40).Column(column =>
             {
+                //column.Item().Row(row =>
+                //{
+                //    row.RelativeItem().Component(new AddressComponent("From", Model.SellerAddress));
+                //    row.ConstantItem(50);
+                //    row.RelativeItem().Component(new AddressComponent("For", Model.CustomerAddress));
+                //});
+
+
                 column.Spacing(5);
                 column.Item().Element(ComposeTable);
             });
@@ -92,20 +99,20 @@ namespace StockIt_2.controllers
             {
                 table.ColumnsDefinition(columns =>
                 {
-                    columns.ConstantColumn(25);
-                    columns.RelativeColumn(3);
-                    columns.RelativeColumn();
-                    columns.RelativeColumn();
-                    columns.RelativeColumn();
+                    columns.RelativeColumn(25);
+                    columns.RelativeColumn(10);
+                    columns.RelativeColumn(10);
+                    columns.RelativeColumn(10);
+                    columns.RelativeColumn(10);
                 });
 
                 table.Header(header =>
                 {
                     header.Cell().Element(CellStyle).Text("Designation");
-                    header.Cell().Element(CellStyle).Text("NBR");
-                    header.Cell().Element(CellStyle).AlignRight().Text("KG");
-                    header.Cell().Element(CellStyle).AlignRight().Text("PU");
-                    header.Cell().Element(CellStyle).AlignRight().Text("TTC");
+                    header.Cell().Element(CellStyle).AlignCenter().Text("NBR");
+                    header.Cell().Element(CellStyle).AlignCenter().Text("KG");
+                    header.Cell().Element(CellStyle).AlignCenter().Text("PU");
+                    header.Cell().Element(CellStyle).AlignCenter().Text("TTC");
 
                     static IContainer CellStyle(IContainer container)
                     {
@@ -116,10 +123,10 @@ namespace StockIt_2.controllers
                 foreach (var item in bon.Items)
                 {
                     table.Cell().Element(CellStyle).Text(item.designation);
-                    table.Cell().Element(CellStyle).Text(item.nbr);
-                    table.Cell().Element(CellStyle).AlignRight().Text($"{item.poids_kg} KG");
-                    table.Cell().Element(CellStyle).AlignRight().Text(item.prix_unitaire);
-                    table.Cell().Element(CellStyle).AlignRight().Text($"{item.ttc} DZD");
+                    table.Cell().Element(CellStyle).AlignCenter().Text(item.nbr);
+                    table.Cell().Element(CellStyle).AlignCenter().Text($"{item.poids_kg}");
+                    table.Cell().Element(CellStyle).AlignCenter().Text(item.prix_unitaire);
+                    table.Cell().Element(CellStyle).AlignCenter().Text($"{item.ttc}");
 
                     static IContainer CellStyle(IContainer container)
                     {

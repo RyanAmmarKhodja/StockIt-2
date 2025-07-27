@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using StockIt_2.models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace StockIt_2.models.GestionFournisseurs
+namespace StockIt_2.services.GestionFournisseurs
 {
     public class GestionFournisseurs
     {
@@ -84,6 +85,84 @@ namespace StockIt_2.models.GestionFournisseurs
                     return new List<Fournisseur>();
                 }
             }
+        }
+
+        public static Fournisseur GetFournisseurById(int id)
+        {
+            using (var conn = Db.GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT * FROM fournisseurs WHERE id = @id";
+                try
+                {
+                    using (var cmd = new SqliteCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        using (SqliteDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                return new Fournisseur
+                                {
+                                    id = reader.GetInt32(0),
+                                    nom = reader.GetString(1),
+                                    prenom = reader.GetString(2),
+                                    adresse = reader.GetString(3),
+                                    rc = reader.GetString(4),
+                                    ai = reader.GetString(5),
+                                    nif = reader.GetString(6),
+                                    nis = reader.GetString(7),
+                                    tel = reader.GetString(8),
+                                    n_bl = reader.GetString(9),
+                                    n_facture = reader.GetString(10)
+                                };
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Error: " + e.Message);
+                }
+            }
+            return null;
+        }
+
+
+        public static void UpdateFournisseur(Fournisseur fournisseur)
+        {
+            using (var conn = Db.GetConnection())
+            {
+                string query = "UPDATE fournisseurs SET nom = @nom, prenom = @prenom, Adresse = @adresse, RC = @rc, AI = @ai, NIF = @nif, NIS = @nis, TEL = @tel, N_BL = @n_bl, N_FACTURE = @n_facture WHERE id = @id";
+                try
+                {
+                    using (var cmd = new SqliteCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", fournisseur.id);
+                        cmd.Parameters.AddWithValue("@nom", fournisseur.nom);
+                        cmd.Parameters.AddWithValue("@prenom", fournisseur.prenom);
+                        cmd.Parameters.AddWithValue("@adresse", fournisseur.adresse);
+                        cmd.Parameters.AddWithValue("@rc", fournisseur.rc);
+                        cmd.Parameters.AddWithValue("@ai", fournisseur.ai);
+                        cmd.Parameters.AddWithValue("@nif", fournisseur.nif);
+                        cmd.Parameters.AddWithValue("@nis", fournisseur.nis);
+                        cmd.Parameters.AddWithValue("@tel", fournisseur.tel);
+                        cmd.Parameters.AddWithValue("@n_bl", fournisseur.n_bl);
+                        cmd.Parameters.AddWithValue("@n_facture", fournisseur.n_facture);
+                        int rows = cmd.ExecuteNonQuery();
+                        MessageBox.Show($"{rows} fournisseur(s) mis à jour(s).");
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Error: " + e.Message);
+                }
+            }
+        }
+
+        public bool check_fournissuer()
+        {
+            return true;
         }
     }
 }

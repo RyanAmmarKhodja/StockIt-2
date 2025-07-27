@@ -1,4 +1,6 @@
-﻿namespace StockIt_2.view.user_controls
+﻿using StockIt_2.services.GestionProduit;
+
+namespace StockIt_2.view.user_controls
 {
     partial class uc_bon
     {
@@ -647,7 +649,7 @@
             // 
             // gestionProduitBindingSource
             // 
-            gestionProduitBindingSource.DataSource = typeof(models.GestionProduit.GestionProduit);
+            gestionProduitBindingSource.DataSource = typeof(GestionProduit);
             // 
             // total_des
             // 

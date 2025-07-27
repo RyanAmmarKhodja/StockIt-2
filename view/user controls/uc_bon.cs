@@ -1,8 +1,5 @@
 ﻿using StockIt_2.controllers;
 using StockIt_2.models;
-using StockIt_2.models.GestionBon;
-using StockIt_2.models.GestionCoords;
-using StockIt_2.models.GestionProduit;
 using StockIt_2.view.forms;
 using System;
 using System.Collections.Generic;
@@ -18,6 +15,9 @@ using System.IO;
 using QuestPDF.Drawing;
 using QuestPDF.Fluent;
 using QuestPDF.Infrastructure;
+using StockIt_2.services.GestionCoords;
+using StockIt_2.services.GestionBon;
+using StockIt_2.services.GestionProduit;
 
 
 namespace StockIt_2.view.user_controls

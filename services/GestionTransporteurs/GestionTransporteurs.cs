@@ -1,12 +1,13 @@
 ﻿using Microsoft.Data.Sqlite;
 using Microsoft.VisualBasic.ApplicationServices;
+using StockIt_2.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StockIt_2.models.GestionTransporteurs
+namespace StockIt_2.services.GestionTransporteurs
 {
     public class GestionTransporteurs
     {
