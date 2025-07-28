@@ -87,36 +87,44 @@ namespace StockIt_2.services.GestionFournisseurs
             }
         }
 
-        public static Fournisseur GetFournisseurById(int id)
+        public bool CheckFournisseurByNif(Fournisseur fournisseur)
         {
             using (var conn = Db.GetConnection())
             {
                 conn.Open();
-                string query = "SELECT * FROM fournisseurs WHERE id = @id";
+                string query = "SELECT * FROM fournisseurs WHERE nom = @nom AND prenom=@prenom AND NIF=@nif";
                 try
                 {
                     using (var cmd = new SqliteCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@nom", fournisseur.nom);
+                        cmd.Parameters.AddWithValue("@prenom", fournisseur.prenom);
+                        cmd.Parameters.AddWithValue("@nif", fournisseur.nif);
+
                         using (SqliteDataReader reader = cmd.ExecuteReader())
                         {
-                            if (reader.Read())
+                            if (reader.HasRows)
                             {
-                                return new Fournisseur
-                                {
-                                    id = reader.GetInt32(0),
-                                    nom = reader.GetString(1),
-                                    prenom = reader.GetString(2),
-                                    adresse = reader.GetString(3),
-                                    rc = reader.GetString(4),
-                                    ai = reader.GetString(5),
-                                    nif = reader.GetString(6),
-                                    nis = reader.GetString(7),
-                                    tel = reader.GetString(8),
-                                    n_bl = reader.GetString(9),
-                                    n_facture = reader.GetString(10)
-                                };
+                                return true;
+
                             }
+                            //if (reader.Read())
+                            //{
+                            //    return new Fournisseur
+                            //    {
+                            //        id = reader.GetInt32(0),
+                            //        nom = reader.GetString(1),
+                            //        prenom = reader.GetString(2),
+                            //        adresse = reader.GetString(3),
+                            //        rc = reader.GetString(4),
+                            //        ai = reader.GetString(5),
+                            //        nif = reader.GetString(6),
+                            //        nis = reader.GetString(7),
+                            //        tel = reader.GetString(8),
+                            //        n_bl = reader.GetString(9),
+                            //        n_facture = reader.GetString(10)
+                            //    };
+                            //}
                         }
                     }
                 }
@@ -124,8 +132,8 @@ namespace StockIt_2.services.GestionFournisseurs
                 {
                     MessageBox.Show("Error: " + e.Message);
                 }
+                return false;
             }
-            return null;
         }
 
 
@@ -158,11 +166,6 @@ namespace StockIt_2.services.GestionFournisseurs
                     MessageBox.Show("Error: " + e.Message);
                 }
             }
-        }
-
-        public bool check_fournissuer()
-        {
-            return true;
         }
     }
 }

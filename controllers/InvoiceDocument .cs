@@ -8,6 +8,7 @@ using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using StockIt_2.models;
+using StockIt_2.services.GestionCoords;
 
 
 
@@ -80,16 +81,21 @@ namespace StockIt_2.controllers
 
             container.PaddingVertical(40).Column(column =>
             {
-                //column.Item().Row(row =>
-                //{
-                //    row.RelativeItem().Component(new AddressComponent("From", Model.SellerAddress));
-                //    row.ConstantItem(50);
-                //    row.RelativeItem().Component(new AddressComponent("For", Model.CustomerAddress));
-                //});
+                column.Item().Row(row =>
+                {
+                    row.RelativeItem().Component(new FournisseurComponent(bon.fournisseur));
+                    row.ConstantItem(50);
+                    row.RelativeItem().Component(new TransporteurComponent(bon.transporteur));
+
+                });
 
 
                 column.Spacing(5);
                 column.Item().Element(ComposeTable);
+                column.Item().Element(ComposeTableTransport);
+                column.Item().AlignRight().Text($"TG: {bon.total_amount} DZD").FontSize(14);
+
+                column.Item().PaddingTop(25).Element(ComposeComments);
             });
         }
 
@@ -136,13 +142,64 @@ namespace StockIt_2.controllers
             });
         }
 
+        void ComposeTableTransport(IContainer container)
+        {
+            container.Table(table =>
+            {
+                table.ColumnsDefinition(columns =>
+                {
+                    columns.RelativeColumn(25);
+                    columns.RelativeColumn(10);
+                    columns.RelativeColumn(10);
+                    columns.RelativeColumn(10);
+                    columns.RelativeColumn(10);
+                });
+
+                table.Header(header =>
+                {
+                    header.Cell().Element(CellStyle).Text("Transport");
+                    header.Cell().Element(CellStyle).AlignCenter().Text("NBR");
+                    header.Cell().Element(CellStyle).AlignCenter().Text("KG");
+                    header.Cell().Element(CellStyle).AlignCenter().Text("PU");
+                    header.Cell().Element(CellStyle).AlignCenter().Text("TTC");
+
+                    static IContainer CellStyle(IContainer container)
+                    {
+                        return container.DefaultTextStyle(x => x.SemiBold()).PaddingVertical(5).BorderBottom(1).BorderColor(Colors.Black);
+                    }
+                });
+
+                foreach (var item in bon.Items)
+                {
+                    table.Cell().Element(CellStyle).Text(" ");
+                    table.Cell().Element(CellStyle).AlignCenter().Text(item.nbr);
+                    table.Cell().Element(CellStyle).AlignCenter().Text($"{item.poids_kg}");
+                    table.Cell().Element(CellStyle).AlignCenter().Text(item.prix_unitaire);
+                    table.Cell().Element(CellStyle).AlignCenter().Text($"{item.ttc}");
+
+                    static IContainer CellStyle(IContainer container)
+                    {
+                        return container.BorderBottom(1).BorderColor(Colors.Grey.Lighten2).PaddingVertical(5);
+                    }
+                }
+            });
+        }
+
         void ComposeComments(IContainer container)
         {
-            container.Background(Colors.Grey.Lighten3).Padding(10).Column(column =>
+            container.Padding(10).Column(column =>
             {
+                GestionCoords gestionCoords = new GestionCoords();
+                Coords coords = gestionCoords.GetCoords();
+
                 column.Spacing(5);
-                column.Item().Text("Comments").FontSize(14);
-                //column.Item().Text(Model.Comments);
+                column.Item().Text("Coordonnées").FontSize(14);
+                column.Item().Text("Tel: ");
+                column.Item().Text("Email: ");
+                column.Item().Text("Adresse: "+coords.adresse);
+                column.Item().Text("AI: "+coords.ai);
+                column.Item().Text("NIF: "+coords.nif);
+                column.Item().Text("NIS: "+coords.nis);
             });
         }
     }

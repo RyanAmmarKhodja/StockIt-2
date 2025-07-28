@@ -18,6 +18,8 @@ using QuestPDF.Infrastructure;
 using StockIt_2.services.GestionCoords;
 using StockIt_2.services.GestionBon;
 using StockIt_2.services.GestionProduit;
+using StockIt_2.services.GestionFournisseurs;
+using StockIt_2.services.GestionIndividu;
 
 
 namespace StockIt_2.view.user_controls
@@ -199,7 +201,29 @@ namespace StockIt_2.view.user_controls
         }
 
 
-
+        private void CheckCategoryFournisseur(Bon bon, Fournisseur fournisseur)
+        {
+            GestionFournisseurs gestionFournisseur = new GestionFournisseurs();
+            GestionParticulier gestionParticulier = new GestionParticulier();
+            if (gestionFournisseur.CheckFournisseurByNif(fournisseur))
+            {
+                bon.category_fournisseur = "entreprise";
+            }
+            else
+            {
+                if (gestionParticulier.CheckParticulierByTel(fournisseur))
+                {
+                    bon.category_fournisseur = "particulier";
+                }
+                else
+                {
+                    // Si le fournisseur n'est ni une entreprise ni un particulier, on le considère comme un particulier par défaut
+                    gestionParticulier.AddParticulier(fournisseur);
+                    MessageBox.Show("Fournisseur ajouté en tant que particulier.");
+                    bon.category_fournisseur = "particulier";
+                }
+            }
+        }
 
 
 
@@ -207,19 +231,43 @@ namespace StockIt_2.view.user_controls
         {
             try
             {
+                Fournisseur fournisseur = new Fournisseur
+                {
+                    nom = fnom.Text,
+                    prenom = fprenom.Text,
+                    rc = rc.Text,
+                    ai = ai.Text,
+                    nif = nif.Text,
+                    nis = nis.Text,
+                    tel = ftel.Text,
+                    adresse = fadresse.Text,
+                    n_bl = bl.Text,
+                    n_facture = facture.Text
+                };
+
+                Transporteur transporteur = new Transporteur
+                {
+                    nom = tnom.Text,
+                    prenom = tprenom.Text,
+                    adresse = tadresse.Text,
+                    matricule = matricule.Text,
+                    tel = ttel.Text
+                };
+
+
                 DateTime Date = DateTime.Now;
 
 
                 Bon bon = new Bon
                 {
                     Date = Date,
-                    fournisseur_nom = fnom.Text,
-                    fournisseur_prenom = fprenom.Text,
-                    transporteur_nom = tnom.Text,
-                    transporteur_prenom = tprenom.Text,
+                    fournisseur = fournisseur,
+                    transporteur = transporteur,
                     prix_transport_unitaire = double.Parse(cout_transport.Text),
                     total_amount = double.Parse(total_general.Text.Replace(" DZD", ""))
                 };
+
+                CheckCategoryFournisseur(bon, fournisseur);
 
                 int bonId = GestionBon.ajouterBon(bon);
                 bon.Id = bonId; // Set the Id of the bon after insertion

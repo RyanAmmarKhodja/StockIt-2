@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StockIt_2.models
 {
-    public class Individu
+    public class Particulier
     {
 
     }
