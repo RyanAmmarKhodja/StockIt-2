@@ -42,7 +42,6 @@
             trans_grid.Size = new Size(1115, 517);
             trans_grid.TabIndex = 0;
             trans_grid.CellClick += trans_grid_CellClick;
-            trans_grid.CellContentClick += trans_grid_CellContentClick;
             // 
             // button1
             // 

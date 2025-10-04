@@ -50,13 +50,7 @@ namespace StockIt_2.view.forms
             }
             catch (Exception ex)  {
                 MessageBox.Show(ex.Message);
-            
             }
-              
-        }
-        private void trans_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
         }
 
         private void choisir_transporteur_Load(object sender, EventArgs e)
@@ -70,7 +64,5 @@ namespace StockIt_2.view.forms
         {
             this.Close();
         }
-
-        
     }
 }

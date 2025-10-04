@@ -1,10 +1,11 @@
+using Krypton.Toolkit;
 using StockIt_2.controllers;
 using StockIt_2.models;
 using StockIt_2.user_controls;
 
 namespace StockIt_2
 {
-    public partial class Form1 : Form
+    public partial class Form1 : KryptonForm
     {
         public Form1()
         {

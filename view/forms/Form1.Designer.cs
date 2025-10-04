@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelContainer = new Panel();
+            kryptonManager1 = new Krypton.Toolkit.KryptonManager(components);
             SuspendLayout();
             // 
             // panelContainer
@@ -38,15 +40,19 @@
             panelContainer.Dock = DockStyle.Fill;
             panelContainer.Location = new Point(0, 0);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(978, 694);
+            panelContainer.Size = new Size(988, 649);
             panelContainer.TabIndex = 0;
+            // 
+            // kryptonManager1
+            // 
+            kryptonManager1.GlobalPaletteMode = Krypton.Toolkit.PaletteMode.Microsoft365Silver;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(978, 694);
+            ClientSize = new Size(988, 649);
             Controls.Add(panelContainer);
             Name = "Form1";
             Text = "Form1";
@@ -58,5 +64,6 @@
         #endregion
 
         private Panel panelContainer;
+        private Krypton.Toolkit.KryptonManager kryptonManager1;
     }
 }

@@ -62,5 +62,15 @@ namespace StockIt_2
         {
             retour_Click(sender, e);
         }
+
+        private void gerer_fournisseurs_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gerer_transporteur_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

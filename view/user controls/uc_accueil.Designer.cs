@@ -72,7 +72,7 @@
             Controls.Add(ventesBtn);
             Controls.Add(achatsBtn);
             Name = "uc_accueil";
-            Size = new Size(800, 450);
+            Size = new Size(1106, 704);
             ResumeLayout(false);
         }
 

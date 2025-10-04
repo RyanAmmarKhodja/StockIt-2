@@ -28,20 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            creer_fournisseur = new Button();
-            bon_reception = new Button();
             label1 = new Label();
             retour = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            transporteurBtn = new Button();
             button3 = new Button();
+            kryptonContextMenu1 = new Krypton.Toolkit.KryptonContextMenu();
+            transporteurBtn = new Button();
+            gerer_transporteur = new Button();
+            gerer_fournisseur = new Button();
+            creer_fournisseur = new Button();
+            bon_reception = new Button();
+            kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
+            kryptonPanel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10F);
+            label1.Location = new Point(52, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(145, 28);
+            label1.TabIndex = 2;
+            label1.Text = "Accueil/ Achats";
+            // 
+            // retour
+            // 
+            retour.Location = new Point(3, 405);
+            retour.Name = "retour";
+            retour.Size = new Size(295, 39);
+            retour.TabIndex = 3;
+            retour.Text = "Retour";
+            retour.UseVisualStyleBackColor = true;
+            retour.Click += retour_Click;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            button3.Location = new Point(3, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(43, 34);
+            button3.TabIndex = 7;
+            button3.Text = "<";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // transporteurBtn
+            // 
+            transporteurBtn.Font = new Font("Segoe UI", 10F);
+            transporteurBtn.Location = new Point(3, 219);
+            transporteurBtn.Name = "transporteurBtn";
+            transporteurBtn.Size = new Size(295, 48);
+            transporteurBtn.TabIndex = 5;
+            transporteurBtn.Text = "Créer un transporteur";
+            transporteurBtn.UseVisualStyleBackColor = true;
+            transporteurBtn.Click += transporteurBtn_Click;
+            // 
+            // gerer_transporteur
+            // 
+            gerer_transporteur.Location = new Point(301, 220);
+            gerer_transporteur.Name = "gerer_transporteur";
+            gerer_transporteur.Size = new Size(250, 48);
+            gerer_transporteur.TabIndex = 6;
+            gerer_transporteur.Text = "Gérer les transpoteurs";
+            gerer_transporteur.UseVisualStyleBackColor = true;
+            gerer_transporteur.Click += gerer_transporteur_Click;
+            // 
+            // gerer_fournisseur
+            // 
+            gerer_fournisseur.Location = new Point(301, 166);
+            gerer_fournisseur.Name = "gerer_fournisseur";
+            gerer_fournisseur.Size = new Size(250, 48);
+            gerer_fournisseur.TabIndex = 4;
+            gerer_fournisseur.Text = "Gérer les fournisseurs";
+            gerer_fournisseur.UseVisualStyleBackColor = true;
+            gerer_fournisseur.Click += gerer_fournisseurs_Click;
             // 
             // creer_fournisseur
             // 
             creer_fournisseur.Font = new Font("Segoe UI", 10F);
-            creer_fournisseur.Location = new Point(35, 180);
+            creer_fournisseur.Location = new Point(3, 165);
             creer_fournisseur.Name = "creer_fournisseur";
             creer_fournisseur.Size = new Size(295, 48);
             creer_fournisseur.TabIndex = 0;
@@ -52,101 +118,53 @@
             // bon_reception
             // 
             bon_reception.Font = new Font("Segoe UI", 10F);
-            bon_reception.Location = new Point(35, 95);
+            bon_reception.Location = new Point(3, 70);
             bon_reception.Name = "bon_reception";
-            bon_reception.Size = new Size(295, 48);
+            bon_reception.Size = new Size(295, 65);
             bon_reception.TabIndex = 1;
             bon_reception.Text = "Créer un bon de récéption";
             bon_reception.UseVisualStyleBackColor = true;
             bon_reception.Click += bon_reception_Click;
             // 
-            // label1
+            // kryptonPanel1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 10F);
-            label1.Location = new Point(84, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(145, 28);
-            label1.TabIndex = 2;
-            label1.Text = "Accueil/ Achats";
-            // 
-            // retour
-            // 
-            retour.Location = new Point(35, 393);
-            retour.Name = "retour";
-            retour.Size = new Size(112, 34);
-            retour.TabIndex = 3;
-            retour.Text = "Retour";
-            retour.UseVisualStyleBackColor = true;
-            retour.Click += retour_Click;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(346, 180);
-            button1.Name = "button1";
-            button1.Size = new Size(46, 48);
-            button1.TabIndex = 4;
-            button1.Text = "...";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(346, 249);
-            button2.Name = "button2";
-            button2.Size = new Size(46, 48);
-            button2.TabIndex = 6;
-            button2.Text = "...";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // transporteurBtn
-            // 
-            transporteurBtn.Font = new Font("Segoe UI", 10F);
-            transporteurBtn.Location = new Point(35, 249);
-            transporteurBtn.Name = "transporteurBtn";
-            transporteurBtn.Size = new Size(295, 48);
-            transporteurBtn.TabIndex = 5;
-            transporteurBtn.Text = "Créer un transporteur";
-            transporteurBtn.UseVisualStyleBackColor = true;
-            transporteurBtn.Click += transporteurBtn_Click;
-            // 
-            // button3
-            // 
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            button3.Location = new Point(35, 20);
-            button3.Name = "button3";
-            button3.Size = new Size(43, 34);
-            button3.TabIndex = 7;
-            button3.Text = "<";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            kryptonPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            kryptonPanel1.Controls.Add(gerer_transporteur);
+            kryptonPanel1.Controls.Add(label1);
+            kryptonPanel1.Controls.Add(button3);
+            kryptonPanel1.Controls.Add(gerer_fournisseur);
+            kryptonPanel1.Controls.Add(retour);
+            kryptonPanel1.Controls.Add(bon_reception);
+            kryptonPanel1.Controls.Add(creer_fournisseur);
+            kryptonPanel1.Controls.Add(transporteurBtn);
+            kryptonPanel1.Location = new Point(0, 3);
+            kryptonPanel1.Name = "kryptonPanel1";
+            kryptonPanel1.Size = new Size(691, 447);
+            kryptonPanel1.TabIndex = 9;
             // 
             // uc_achats
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(transporteurBtn);
-            Controls.Add(button1);
-            Controls.Add(retour);
-            Controls.Add(label1);
-            Controls.Add(bon_reception);
-            Controls.Add(creer_fournisseur);
+            Controls.Add(kryptonPanel1);
             Name = "uc_achats";
-            Size = new Size(800, 450);
+            Size = new Size(691, 450);
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
+            kryptonPanel1.ResumeLayout(false);
+            kryptonPanel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Button creer_fournisseur;
-        private Button bon_reception;
         private Label label1;
         private Button retour;
-        private Button button1;
-        private Button button2;
-        private Button transporteurBtn;
         private Button button3;
+        private Krypton.Toolkit.KryptonContextMenu kryptonContextMenu1;
+        private Button transporteurBtn;
+        private Button gerer_transporteur;
+        private Button gerer_fournisseur;
+        private Button creer_fournisseur;
+        private Button bon_reception;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel1;
     }
 }
