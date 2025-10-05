@@ -336,9 +336,8 @@ namespace StockIt_2.view.user_controls
             // 
             // imprimer
             // 
-            imprimer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             imprimer.Font = new Font("Segoe UI", 10F);
-            imprimer.Location = new Point(444, 1819);
+            imprimer.Location = new Point(435, 1819);
             imprimer.Name = "imprimer";
             imprimer.Size = new Size(338, 56);
             imprimer.TabIndex = 100;
@@ -505,7 +504,7 @@ namespace StockIt_2.view.user_controls
             kryptonPanel1.Controls.Add(facture);
             kryptonPanel1.Location = new Point(176, 113);
             kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderForm;
+            kryptonPanel1.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             kryptonPanel1.Size = new Size(893, 544);
             kryptonPanel1.TabIndex = 124;
             // 
@@ -614,6 +613,7 @@ namespace StockIt_2.view.user_controls
             kryptonPanel2.Location = new Point(176, 740);
             kryptonPanel2.Margin = new Padding(50, 3, 50, 3);
             kryptonPanel2.Name = "kryptonPanel2";
+            kryptonPanel2.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             kryptonPanel2.Size = new Size(893, 248);
             kryptonPanel2.TabIndex = 125;
             // 
@@ -722,6 +722,7 @@ namespace StockIt_2.view.user_controls
             kryptonPanel3.Controls.Add(cout_transport);
             kryptonPanel3.Location = new Point(176, 1072);
             kryptonPanel3.Name = "kryptonPanel3";
+            kryptonPanel3.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             kryptonPanel3.Size = new Size(893, 299);
             kryptonPanel3.TabIndex = 130;
             // 
@@ -815,6 +816,7 @@ namespace StockIt_2.view.user_controls
             kryptonPanel4.Controls.Add(cnis);
             kryptonPanel4.Location = new Point(176, 1468);
             kryptonPanel4.Name = "kryptonPanel4";
+            kryptonPanel4.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             kryptonPanel4.Size = new Size(893, 345);
             kryptonPanel4.TabIndex = 131;
             // 
@@ -903,6 +905,7 @@ namespace StockIt_2.view.user_controls
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            AutoScrollMargin = new Size(0, 50);
             Controls.Add(panel_header_command);
             Controls.Add(panel_header_coords);
             Controls.Add(kryptonPanel4);

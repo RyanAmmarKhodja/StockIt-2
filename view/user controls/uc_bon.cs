@@ -325,7 +325,7 @@ namespace StockIt_2.view.user_controls
             kryptonPanel2.Left = (this.ClientSize.Width - kryptonPanel2.Width) / 2;
             kryptonPanel3.Left = (this.ClientSize.Width - kryptonPanel3.Width) / 2;
             kryptonPanel4.Left = (this.ClientSize.Width - kryptonPanel4.Width) / 2;
-
+            imprimer.Left = (this.ClientSize.Width - imprimer.Width) / 2;
         }
 
     }
