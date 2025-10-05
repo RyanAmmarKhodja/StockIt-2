@@ -40,7 +40,7 @@
             panelContainer.Dock = DockStyle.Fill;
             panelContainer.Location = new Point(0, 0);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1008, 559);
+            panelContainer.Size = new Size(1012, 541);
             panelContainer.TabIndex = 0;
             // 
             // kryptonManager1
@@ -52,10 +52,11 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(1008, 559);
+            ClientSize = new Size(1012, 541);
             Controls.Add(panelContainer);
             Name = "Form1";
             Text = "Form1";
+            WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();

@@ -1,25 +1,26 @@
-﻿using StockIt_2.controllers;
+﻿using Krypton.Toolkit;
+using QuestPDF.Drawing;
+using QuestPDF.Fluent;
+using QuestPDF.Infrastructure;
+using StockIt_2.controllers;
 using StockIt_2.models;
+using StockIt_2.services.GestionBon;
+using StockIt_2.services.GestionCoords;
+using StockIt_2.services.GestionFournisseurs;
+using StockIt_2.services.GestionIndividu;
+using StockIt_2.services.GestionProduit;
 using StockIt_2.view.forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.IO;
-using QuestPDF.Drawing;
-using QuestPDF.Fluent;
-using QuestPDF.Infrastructure;
-using StockIt_2.services.GestionCoords;
-using StockIt_2.services.GestionBon;
-using StockIt_2.services.GestionProduit;
-using StockIt_2.services.GestionFournisseurs;
-using StockIt_2.services.GestionIndividu;
 
 
 namespace StockIt_2.view.user_controls
@@ -313,19 +314,19 @@ namespace StockIt_2.view.user_controls
             }
         }
 
-        private void kryptonGroupBox1_Paint(object sender, PaintEventArgs e)
+        private void uc_bon_Resize(object sender, EventArgs e)
         {
+            // Center the panels horizontally
+            panel_header_fournisseur.Left = (this.ClientSize.Width - panel_header_fournisseur.Width) / 2;
+            panel_header_transporteur.Left = (this.ClientSize.Width - panel_header_fournisseur.Width) / 2;
+            panel_header_coords.Left = (this.ClientSize.Width - panel_header_fournisseur.Width) / 2;
+            panel_header_command.Left = (this.ClientSize.Width - panel_header_fournisseur.Width) / 2;
+            kryptonPanel1.Left = (this.ClientSize.Width - kryptonPanel1.Width) / 2;
+            kryptonPanel2.Left = (this.ClientSize.Width - kryptonPanel2.Width) / 2;
+            kryptonPanel3.Left = (this.ClientSize.Width - kryptonPanel3.Width) / 2;
+            kryptonPanel4.Left = (this.ClientSize.Width - kryptonPanel4.Width) / 2;
 
         }
 
-        private void kryptonGroupBox1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void kryptonLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
